@@ -76,6 +76,7 @@ type Report struct {
 	Network     NetworkReport     `json:"network"`
 	Connections ConnectionsReport `json:"connections"`
 	GPU         *GPUDetailReport  `json:"gpu,omitempty"`
+	Battery     *BatteryReport    `json:"battery,omitempty"`
 	Uptime      int64             `json:"uptime"`
 	Process     int               `json:"process"`
 	Message     string            `json:"message"`
@@ -88,6 +89,12 @@ type CPUReport struct {
 	Cores int     `json:"cores,omitempty"`
 	Arch  string  `json:"arch,omitempty"`
 	Usage float64 `json:"usage,omitempty"`
+}
+
+type BatteryReport struct {
+	Level    int    `json:"level"`
+	Charging bool   `json:"charging"`
+	Status   string `json:"status,omitempty"`
 }
 
 type GPUDetailReport struct {
