@@ -39,7 +39,7 @@ type Client struct {
 	Tags             string     `json:"tags" gorm:"type:text"` // split by ';'
 	// PrivateTags 隐私标签，仅登录管理员可见；
 	// public:getNodesInformation 对未登录访客彻底剥离（同 Remark）。
-	PrivateTags      string     `json:"private_tags" gorm:"type:text"` // split by ';'
+	PrivateTags      string     `json:"private_tags,omitempty" gorm:"type:text"` // split by ';'
 	Hidden           bool       `json:"hidden" gorm:"default:false"`
 	TrafficLimit     int64      `json:"traffic_limit" gorm:"type:bigint"`
 	TrafficLimitType string     `json:"traffic_limit_type" gorm:"type:varchar(10);default:'max'"` // 流量阈值类型：sum max min up down
