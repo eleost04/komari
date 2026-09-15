@@ -58,6 +58,10 @@ func publicGetNodesInformation(ctx context.Context, _ *rpc.JsonRpcRequest) (any,
 		clientList[i].IPv4 = ""
 		clientList[i].IPv6 = ""
 		clientList[i].Remark = ""
+		// 隐私标签仅登录管理员可见，访客剥离（同 Remark 处理）。
+		if !isLogin {
+			clientList[i].PrivateTags = ""
+		}
 		clientList[i].Version = ""
 		clientList[i].Token = ""
 		clientList[j] = clientList[i]
